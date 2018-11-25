@@ -4,6 +4,7 @@ namespace App\Services;
 
 use ErrorException;
 use OauthPhirehose;
+use App\Jobs\ProcessTwitterFeedItem;
 use App\Contracts\SocialMediaMonitoringInterface;
 
 /**
@@ -33,6 +34,8 @@ class TwitterMonitoringService extends OauthPhirehose implements SocialMediaMoni
      */
     public function enqueueStatus($status)
     {
-        // @TODO add the items to the processing queue
+        $item = json_decode($status, true);
+
+        dispatch(new ProcessTwitterFeedItem($item));
     }
 }
