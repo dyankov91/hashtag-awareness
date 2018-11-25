@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "94305c97d0490a8c0a7a69594e02519a",
+    "hash": "bf29bb3d950bbea4f59a4bb409f25e9d",
+    "content-hash": "b728a7d79972eb95210cde523b2dcb10",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -71,7 +72,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2018-01-09T20:05:19+00:00"
+            "time": "2018-01-09 20:05:19"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -120,7 +121,51 @@
                 "cron",
                 "schedule"
             ],
-            "time": "2018-06-06T03:12:17+00:00"
+            "time": "2018-06-06 03:12:17"
+        },
+        {
+            "name": "fennb/phirehose",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fennb/phirehose.git",
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fennb/phirehose/zipball/405d125db9baa771ac0cd861f0b2b2032434d40c",
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Fenn Bailey",
+                    "homepage": "http://fennb.com/"
+                }
+            ],
+            "description": "A PHP interface to the Twitter Streaming API.",
+            "homepage": "https://github.com/fennb/phirehose",
+            "keywords": [
+                "api",
+                "phirehose",
+                "php",
+                "streaming",
+                "twitter"
+            ],
+            "time": "2018-03-15 14:09:46"
         },
         {
             "name": "illuminate/auth",
@@ -171,7 +216,7 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-18T03:39:45+00:00"
+            "time": "2018-10-18 03:39:45"
         },
         {
             "name": "illuminate/broadcasting",
@@ -221,7 +266,7 @@
             ],
             "description": "The Illuminate Broadcasting package.",
             "homepage": "https://laravel.com",
-            "time": "2018-09-16T20:37:01+00:00"
+            "time": "2018-09-16 20:37:01"
         },
         {
             "name": "illuminate/bus",
@@ -266,7 +311,7 @@
             ],
             "description": "The Illuminate Bus package.",
             "homepage": "https://laravel.com",
-            "time": "2018-01-04T20:39:14+00:00"
+            "time": "2018-01-04 20:39:14"
         },
         {
             "name": "illuminate/cache",
@@ -315,7 +360,7 @@
             ],
             "description": "The Illuminate Cache package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-06T18:48:42+00:00"
+            "time": "2018-10-06 18:48:42"
         },
         {
             "name": "illuminate/config",
@@ -359,7 +404,7 @@
             ],
             "description": "The Illuminate Config package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-06T18:48:42+00:00"
+            "time": "2018-10-06 18:48:42"
         },
         {
             "name": "illuminate/console",
@@ -409,7 +454,7 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-18T03:39:45+00:00"
+            "time": "2018-10-18 03:39:45"
         },
         {
             "name": "illuminate/container",
@@ -454,7 +499,7 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-18T03:39:45+00:00"
+            "time": "2018-10-18 03:39:45"
         },
         {
             "name": "illuminate/contracts",
@@ -498,7 +543,7 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-08T13:34:14+00:00"
+            "time": "2018-10-08 13:34:14"
         },
         {
             "name": "illuminate/database",
@@ -557,7 +602,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2018-10-24T12:48:02+00:00"
+            "time": "2018-10-24 12:48:02"
         },
         {
             "name": "illuminate/encryption",
@@ -603,7 +648,7 @@
             ],
             "description": "The Illuminate Encryption package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-17T04:56:37+00:00"
+            "time": "2018-10-17 04:56:37"
         },
         {
             "name": "illuminate/events",
@@ -648,7 +693,7 @@
             ],
             "description": "The Illuminate Events package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-06T18:48:42+00:00"
+            "time": "2018-10-06 18:48:42"
         },
         {
             "name": "illuminate/filesystem",
@@ -700,7 +745,7 @@
             ],
             "description": "The Illuminate Filesystem package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-24T12:49:16+00:00"
+            "time": "2018-10-24 12:49:16"
         },
         {
             "name": "illuminate/hashing",
@@ -744,7 +789,7 @@
             ],
             "description": "The Illuminate Hashing package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-03T14:16:35+00:00"
+            "time": "2018-10-03 14:16:35"
         },
         {
             "name": "illuminate/http",
@@ -790,7 +835,7 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-19T04:42:40+00:00"
+            "time": "2018-10-19 04:42:40"
         },
         {
             "name": "illuminate/log",
@@ -835,7 +880,7 @@
             ],
             "description": "The Illuminate Log package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-06T18:48:42+00:00"
+            "time": "2018-10-06 18:48:42"
         },
         {
             "name": "illuminate/pagination",
@@ -879,7 +924,7 @@
             ],
             "description": "The Illuminate Pagination package.",
             "homepage": "https://laravel.com",
-            "time": "2018-08-31T17:05:14+00:00"
+            "time": "2018-08-31 17:05:14"
         },
         {
             "name": "illuminate/pipeline",
@@ -923,7 +968,7 @@
             ],
             "description": "The Illuminate Pipeline package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-06T18:48:42+00:00"
+            "time": "2018-10-06 18:48:42"
         },
         {
             "name": "illuminate/queue",
@@ -981,7 +1026,7 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-23T16:51:04+00:00"
+            "time": "2018-10-23 16:51:04"
         },
         {
             "name": "illuminate/session",
@@ -1031,7 +1076,7 @@
             ],
             "description": "The Illuminate Session package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-10T20:24:53+00:00"
+            "time": "2018-10-10 20:24:53"
         },
         {
             "name": "illuminate/support",
@@ -1090,7 +1135,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-22T17:36:06+00:00"
+            "time": "2018-10-22 17:36:06"
         },
         {
             "name": "illuminate/translation",
@@ -1135,7 +1180,7 @@
             ],
             "description": "The Illuminate Translation package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-18T03:39:45+00:00"
+            "time": "2018-10-18 03:39:45"
         },
         {
             "name": "illuminate/validation",
@@ -1185,7 +1230,7 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-22T18:26:26+00:00"
+            "time": "2018-10-22 18:26:26"
         },
         {
             "name": "illuminate/view",
@@ -1233,7 +1278,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "https://laravel.com",
-            "time": "2018-10-11T15:32:19+00:00"
+            "time": "2018-10-11 15:32:19"
         },
         {
             "name": "laravel/lumen-framework",
@@ -1317,7 +1362,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2018-11-15T17:05:57+00:00"
+            "time": "2018-11-15 17:05:57"
         },
         {
             "name": "monolog/monolog",
@@ -1395,7 +1440,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "time": "2018-11-05 09:00:11"
         },
         {
             "name": "nesbot/carbon",
@@ -1453,7 +1498,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-11-22T18:23:02+00:00"
+            "time": "2018-11-22 18:23:02"
         },
         {
             "name": "nikic/fast-route",
@@ -1499,7 +1544,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2018-02-13T20:26:39+00:00"
+            "time": "2018-02-13 20:26:39"
         },
         {
             "name": "opis/closure",
@@ -1560,7 +1605,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2018-10-02T13:36:53+00:00"
+            "time": "2018-10-02 13:36:53"
         },
         {
             "name": "psr/container",
@@ -1609,7 +1654,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2017-02-14 16:28:37"
         },
         {
             "name": "psr/log",
@@ -1656,7 +1701,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2018-11-20 15:27:04"
         },
         {
             "name": "psr/simple-cache",
@@ -1704,7 +1749,7 @@
                 "psr-16",
                 "simple-cache"
             ],
-            "time": "2017-10-23T01:57:42+00:00"
+            "time": "2017-10-23 01:57:42"
         },
         {
             "name": "symfony/console",
@@ -1772,7 +1817,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-31T09:30:44+00:00"
+            "time": "2018-10-31 09:30:44"
         },
         {
             "name": "symfony/debug",
@@ -1828,7 +1873,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-31T09:09:42+00:00"
+            "time": "2018-10-31 09:09:42"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1891,7 +1936,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-10T13:52:42+00:00"
+            "time": "2018-10-10 13:52:42"
         },
         {
             "name": "symfony/finder",
@@ -1940,7 +1985,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-03T08:47:56+00:00"
+            "time": "2018-10-03 08:47:56"
         },
         {
             "name": "symfony/http-foundation",
@@ -1994,7 +2039,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-31T09:09:42+00:00"
+            "time": "2018-10-31 09:09:42"
         },
         {
             "name": "symfony/http-kernel",
@@ -2081,7 +2126,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-03T11:11:23+00:00"
+            "time": "2018-11-03 11:11:23"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2139,7 +2184,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-08-06 14:22:27"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2198,7 +2243,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
+            "time": "2018-09-21 13:07:52"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -2253,7 +2298,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
+            "time": "2018-09-21 13:07:52"
         },
         {
             "name": "symfony/process",
@@ -2302,7 +2347,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-14T20:48:13+00:00"
+            "time": "2018-10-14 20:48:13"
         },
         {
             "name": "symfony/translation",
@@ -2371,7 +2416,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-28T18:38:52+00:00"
+            "time": "2018-10-28 18:38:52"
         },
         {
             "name": "symfony/var-dumper",
@@ -2446,7 +2491,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2018-10-02T16:36:10+00:00"
+            "time": "2018-10-02 16:36:10"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2496,7 +2541,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-07-29T20:33:41+00:00"
+            "time": "2018-07-29 20:33:41"
         }
     ],
     "packages-dev": [
@@ -2552,7 +2597,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22T11:58:36+00:00"
+            "time": "2017-07-22 11:58:36"
         },
         {
             "name": "fzaninotto/faker",
@@ -2602,7 +2647,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2018-07-12T10:23:15+00:00"
+            "time": "2018-07-12 10:23:15"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -2650,7 +2695,7 @@
             "keywords": [
                 "test"
             ],
-            "time": "2016-01-20T08:20:44+00:00"
+            "time": "2016-01-20 08:20:44"
         },
         {
             "name": "mockery/mockery",
@@ -2715,7 +2760,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2018-10-02T21:52:37+00:00"
+            "time": "2018-10-02 21:52:37"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2763,7 +2808,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-06-11T23:09:50+00:00"
+            "time": "2018-06-11 23:09:50"
         },
         {
             "name": "phar-io/manifest",
@@ -2818,7 +2863,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2018-07-08T19:23:20+00:00"
+            "time": "2018-07-08 19:23:20"
         },
         {
             "name": "phar-io/version",
@@ -2865,7 +2910,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2018-07-08T19:19:57+00:00"
+            "time": "2018-07-08 19:19:57"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2919,7 +2964,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11T18:02:19+00:00"
+            "time": "2017-09-11 18:02:19"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -2970,7 +3015,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-30T07:14:17+00:00"
+            "time": "2017-11-30 07:14:17"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3017,7 +3062,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14T14:27:02+00:00"
+            "time": "2017-07-14 14:27:02"
         },
         {
             "name": "phpspec/prophecy",
@@ -3080,7 +3125,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05T17:53:17+00:00"
+            "time": "2018-08-05 17:53:17"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3143,7 +3188,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-31T16:06:48+00:00"
+            "time": "2018-10-31 16:06:48"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3193,7 +3238,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2018-09-13T20:33:42+00:00"
+            "time": "2018-09-13 20:33:42"
         },
         {
             "name": "phpunit/php-text-template",
@@ -3234,7 +3279,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -3283,7 +3328,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2018-02-01T13:07:23+00:00"
+            "time": "2018-02-01 13:07:23"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -3332,7 +3377,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-10-30T05:52:18+00:00"
+            "time": "2018-10-30 05:52:18"
         },
         {
             "name": "phpunit/phpunit",
@@ -3416,7 +3461,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-11-14T16:52:02+00:00"
+            "time": "2018-11-14 16:52:02"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -3461,7 +3506,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T06:30:41+00:00"
+            "time": "2017-03-04 06:30:41"
         },
         {
             "name": "sebastian/comparator",
@@ -3525,7 +3570,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-07-12T15:12:46+00:00"
+            "time": "2018-07-12 15:12:46"
         },
         {
             "name": "sebastian/diff",
@@ -3581,7 +3626,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-06-10T07:54:39+00:00"
+            "time": "2018-06-10 07:54:39"
         },
         {
             "name": "sebastian/environment",
@@ -3631,7 +3676,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-11-25T09:31:21+00:00"
+            "time": "2018-11-25 09:31:21"
         },
         {
             "name": "sebastian/exporter",
@@ -3698,7 +3743,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-04-03T13:19:02+00:00"
+            "time": "2017-04-03 13:19:02"
         },
         {
             "name": "sebastian/global-state",
@@ -3749,7 +3794,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27T15:39:26+00:00"
+            "time": "2017-04-27 15:39:26"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -3796,7 +3841,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-08-03T12:35:26+00:00"
+            "time": "2017-08-03 12:35:26"
         },
         {
             "name": "sebastian/object-reflector",
@@ -3841,7 +3886,7 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "time": "2017-03-29T09:07:27+00:00"
+            "time": "2017-03-29 09:07:27"
         },
         {
             "name": "sebastian/recursion-context",
@@ -3894,7 +3939,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-03T06:23:57+00:00"
+            "time": "2017-03-03 06:23:57"
         },
         {
             "name": "sebastian/resource-operations",
@@ -3936,7 +3981,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2018-10-04T04:07:39+00:00"
+            "time": "2018-10-04 04:07:39"
         },
         {
             "name": "sebastian/version",
@@ -3979,7 +4024,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03T07:35:21+00:00"
+            "time": "2016-10-03 07:35:21"
         },
         {
             "name": "theseer/tokenizer",
@@ -4019,7 +4064,7 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2017-04-07T12:08:54+00:00"
+            "time": "2017-04-07 12:08:54"
         },
         {
             "name": "webmozart/assert",
@@ -4069,12 +4114,14 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-01-29 19:49:41"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "fennb/phirehose": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
