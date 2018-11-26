@@ -78,6 +78,11 @@ $app->singleton(
 |
 */
 
+// here register local only providers
+if (app()->environment('local')) {
+    $app->register(QuanKim\LaravelDynamoDBMigrations\DynamoDBMigrationServiceProvider::class);
+}
+
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Aws\Laravel\AwsServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);

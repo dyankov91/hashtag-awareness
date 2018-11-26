@@ -3,6 +3,7 @@
 namespace App;
 
 use JsonSerializable;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class SocialMediaItem
@@ -18,14 +19,16 @@ class SocialMediaItem implements JsonSerializable
      * @param string $text
      * @param array  $tags
      * @param string $createdAt
+     * @throws \Exception
      */
     public function __construct(string $author, string $text, array $tags, string $createdAt)
     {
         $this->payload = [
-            'author' => $author,
-            'text' => $text,
-            'tags' => $tags,
-            'created_at' => $createdAt,
+            'Id' => Uuid::uuid4(),
+            'Author' => $author,
+            'Text' => $text,
+            'Tags' => $tags,
+            'CreatedAt' => $createdAt,
         ];
     }
 
