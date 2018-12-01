@@ -2,15 +2,16 @@
 
 namespace App\Jobs;
 
+use App\Item;
 use Exception;
 use Aws\Sdk as AwsSdk;
-use App\SocialMediaItem;
 use Aws\DynamoDb\Marshaler;
+use App\Events\ItemCreated;
 
 /**
- * Class ProcessTwitterFeedItem
+ * Class ProcessTwitterItem
  */
-class ProcessTwitterFeedItem extends Job
+class ProcessTwitterItem extends Job
 {
     /** @var array */
     protected $item;
@@ -25,18 +26,20 @@ class ProcessTwitterFeedItem extends Job
     }
 
     /**
-     * Normalizes the standard twitter feed item to SocialMediaItem DTO for storing
+     * Normalizes the standard twitter object to Item DTO for storing
      * @param AwsSdk    $aws
      * @param Marshaler $marshaler
      */
     public function handle(AwsSdk $aws, Marshaler $marshaler)
     {
         try {
+            $payload = $this->buildPayload();
             $dynamodb = $aws->createDynamoDb();
             $dynamodb->putItem([
-                'TableName' => 'SocialMediaItems',
-                'Item' => $marshaler->marshalJson(json_encode($this->buildPayload())),
+                'TableName' => 'Items',
+                'Item' => $marshaler->marshalJson(json_encode($payload)),
             ]);
+            event(new ItemCreated($payload));
         } catch (Exception $e) {
             echo "Unable to add item:".PHP_EOL;
             echo $e->getMessage().PHP_EOL;
@@ -45,7 +48,7 @@ class ProcessTwitterFeedItem extends Job
     }
 
     /**
-     * @return SocialMediaItem
+     * @return Item
      * @throws Exception
      */
     protected function buildPayload()
@@ -53,22 +56,23 @@ class ProcessTwitterFeedItem extends Job
         $author = $this->item['user']['name'];
         $text = $this->item['text'];
         $tags = $this->getTags();
-        $createdAt = $this->formatCreatedAt();
-
-        return new SocialMediaItem(
+        $publishedAt = $this->formatPublishedAt();
+        
+        return new Item(
+            'twitter',
+            $publishedAt,
             $author,
             $text,
-            $tags,
-            $createdAt
+            $tags
         );
     }
 
     /**
      * @return false|string
      */
-    protected function formatCreatedAt()
+    protected function formatPublishedAt()
     {
-        return date('Y-m-d H:i:s', strtotime($this->item['created_at']));
+        return strtotime($this->item['created_at']);
     }
 
     /**

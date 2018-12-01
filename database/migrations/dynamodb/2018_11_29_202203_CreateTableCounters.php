@@ -1,32 +1,28 @@
 <?php
-
 namespace Database\Migration\DynamoDB;
 
 use Aws\DynamoDb\DynamoDbClient;
 use QuanKim\LaravelDynamoDBMigrations\DBClient;
 
 /**
- * Class CreateSocialMediaItems
+ * Class CreateTableCounters
  * @property DynamoDbClient dbClient
  */
-class CreateSocialMediaItems extends DBClient
+class CreateTableCounters extends DBClient
 {
-    /**
-     * Create
-     */
     public function up()
     {
         $this->dbClient->createTable([
-            'TableName' => 'SocialMediaItems',
+            'TableName' => 'Counters',
             'KeySchema' => [
                 [
-                    'AttributeName' => 'Id',
+                    'AttributeName' => 'CountedTable',
                     'KeyType' => 'HASH',
                 ],
             ],
             'AttributeDefinitions' => [
                 [
-                    'AttributeName' => 'Id',
+                    'AttributeName' => 'CountedTable',
                     'AttributeType' => 'S',
                 ],
             ],
@@ -37,7 +33,7 @@ class CreateSocialMediaItems extends DBClient
         ]);
 
         $this->dbClient->waitUntil('TableExists', [
-            'TableName' => 'SocialMediaItems',
+            'TableName' => 'Counters',
             '@waiter' => [
                 'delay' => 5,
                 'maxAttempts' => 20,
@@ -51,11 +47,11 @@ class CreateSocialMediaItems extends DBClient
     public function down(&$canRollback)
     {
         $this->dbClient->deleteTable([
-            'TableName' => 'SocialMediaItems',
+            'TableName' => 'Counters',
         ]);
 
         $this->dbClient->waitUntil('TableNotExists', [
-            'TableName' => 'SocialMediaItems',
+            'TableName' => 'Counters',
             '@waiter' => [
                 'delay' => 5,
                 'maxAttempts' => 20,

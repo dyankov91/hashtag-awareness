@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\ItemCreated;
+use App\Events\ItemDeleted;
+use App\Listeners\DecreaseTableCount;
+use App\Listeners\IncreaseTableCount;
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -12,8 +16,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\ExampleEvent' => [
-            'App\Listeners\ExampleListener',
+        ItemCreated::class => [
+            IncreaseTableCount::class,
+        ],
+        ItemDeleted::class => [
+            DecreaseTableCount::class,
         ],
     ];
 }
