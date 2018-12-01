@@ -44,7 +44,7 @@ class DecreaseTableCount
                 $dynamodb->updateItem([
                     'TableName' => 'Counters',
                     'Key' => $this->marshaler->marshalJson(json_encode(['CountedTable' => $item->getTable()])),
-                    'UpdateExpression' => 'REMOVE CountItems :n',
+                    'UpdateExpression' => 'SET CountItems = CountItems - :n',
                     'ExpressionAttributeValues' => $this->marshaler->marshalJson(json_encode([':n' => 1])),
                 ]);
             } catch (Exception $e) {

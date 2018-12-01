@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands\DynamoDb;
 
-use Aws\Sdk;
-use Aws\DynamoDb\Marshaler;
 use Illuminate\Console\Command;
+use App\Services\CounterService;
 
 /**
  * Class CounterCommand
@@ -27,24 +26,12 @@ class CounterCommand extends Command
 
     /**
      * Execute the console command.
-     * @param Sdk       $aws
-     * @param Marshaler $marshaler
+     * @param CounterService $counterService
      */
-    public function handle(Sdk $aws, Marshaler $marshaler)
+    public function handle(CounterService $counterService)
     {
         $table = $this->argument('table');
-
-        $dynamoDB = $aws->createDynamoDb();
-        $result = $dynamoDB->getItem([
-            "ConsistentRead" => true,
-            'TableName' => 'Counters',
-            'Key' => $marshaler->marshalJson(json_encode(['CountedTable' => $table])),
-            'AttributesToGet' => ['CountItems'],
-        ]);
-        
-        $count = $result->search('Item.CountItems') ?
-            $marshaler->unmarshalValue($result->search('Item.CountItems'))
-            : 0;
+        $count = $counterService->getCountFor($table);
 
         $this->info(sprintf(
             "Table `%s` has '%s' records.",

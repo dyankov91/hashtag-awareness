@@ -2,8 +2,9 @@
 
 namespace App\Console;
 
-use App\Console\Commands\MonitoringCommand;
+use App\Console\Commands\ArchiveCommand;
 use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\MonitoringCommand;
 use App\Console\Commands\DynamoDb\CounterCommand;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
@@ -17,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         CounterCommand::class,
         MonitoringCommand::class,
+        ArchiveCommand::class,
     ];
 
     /**

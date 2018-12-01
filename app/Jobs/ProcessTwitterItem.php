@@ -4,9 +4,7 @@ namespace App\Jobs;
 
 use App\Item;
 use Exception;
-use Aws\Sdk as AwsSdk;
-use Aws\DynamoDb\Marshaler;
-use App\Events\ItemCreated;
+use App\Services\ItemService;
 
 /**
  * Class ProcessTwitterItem
@@ -27,52 +25,31 @@ class ProcessTwitterItem extends Job
 
     /**
      * Normalizes the standard twitter object to Item DTO for storing
-     * @param AwsSdk    $aws
-     * @param Marshaler $marshaler
+     * @param ItemService $itemService
      */
-    public function handle(AwsSdk $aws, Marshaler $marshaler)
+    public function handle(ItemService $itemService)
     {
-        try {
-            $payload = $this->buildPayload();
-            $dynamodb = $aws->createDynamoDb();
-            $dynamodb->putItem([
-                'TableName' => 'Items',
-                'Item' => $marshaler->marshalJson(json_encode($payload)),
-            ]);
-            event(new ItemCreated($payload));
-        } catch (Exception $e) {
-            echo "Unable to add item:".PHP_EOL;
-            echo $e->getMessage().PHP_EOL;
-            die;
-        }
+        $item = $this->makeItem();
+        $itemService->storeItem($item);
     }
 
     /**
      * @return Item
-     * @throws Exception
      */
-    protected function buildPayload()
+    protected function makeItem()
     {
-        $author = $this->item['user']['name'];
-        $text = $this->item['text'];
-        $tags = $this->getTags();
-        $publishedAt = $this->formatPublishedAt();
-        
-        return new Item(
-            'twitter',
-            $publishedAt,
-            $author,
-            $text,
-            $tags
-        );
-    }
-
-    /**
-     * @return false|string
-     */
-    protected function formatPublishedAt()
-    {
-        return strtotime($this->item['created_at']);
+        try {
+            return new Item([
+                'Author' => $this->item['user']['name'],
+                'PublishedAt' => strtotime($this->item['created_at']),
+                'Text' => $this->item['text'],
+                'Tags' => $this->getTags(),
+            ]);
+        } catch (Exception $e) {
+            echo "Unable to make item:".PHP_EOL;
+            echo $e->getMessage().PHP_EOL;
+            die;
+        }
     }
 
     /**

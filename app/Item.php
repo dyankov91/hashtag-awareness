@@ -3,7 +3,6 @@
 namespace App;
 
 use JsonSerializable;
-use Ramsey\Uuid\Uuid;
 use App\Contracts\CountableModelInterface;
 
 /**
@@ -11,34 +10,37 @@ use App\Contracts\CountableModelInterface;
  */
 class Item implements CountableModelInterface, JsonSerializable
 {
-    /**
-     * Item constructor.
-     * @param string $driver
-     * @param string $publishedAt
-     * @param string $author
-     * @param string $text
-     * @param array  $tags
-     * @throws \Exception
-     */
-    public function __construct(
-        string $driver,
-        string $publishedAt,
-        string $author,
-        string $text,
-        array $tags
-    ) {
-        $this->payload = [
-            '_id' => Uuid::uuid4()->toString(),
-            'Driver' => $driver,
-            'PublishedAt' => (int) $publishedAt,
-            'Author' => $author,
-            'Text' => $text,
-            'Tags' => $tags,
-        ];
-    }
-
     /** @var array */
     protected $payload = [];
+
+    /**
+     * Item constructor.
+     * @param array $payload
+     * @throws \Exception
+     */
+    public function __construct(array $payload) {
+        if (
+            !isset($payload['Author'])
+            || !isset($payload['PublishedAt'])
+            || !isset($payload['Text'])
+            || !isset($payload['Tags'])
+        ) {
+            throw new \Exception('Insufficient data. Cannot create Item.');
+        }
+
+        $this->payload = $payload;
+    }
+
+    /**
+     * @return array
+     */
+    public function getKey(): array
+    {
+        return [
+            'Author' => $this->payload['Author'],
+            'PublishedAt' => $this->payload['PublishedAt'],
+        ];
+    }
 
     /**
      * @return string

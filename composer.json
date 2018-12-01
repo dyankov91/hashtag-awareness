@@ -11,7 +11,6 @@
         "illuminate/redis": "^5.7",
         "laravel/lumen-framework": "5.7.*",
         "predis/predis": "^1.1",
-        "ramsey/uuid": "^3.8",
         "vlucas/phpdotenv": "~2.2"
     },
     "require-dev": {

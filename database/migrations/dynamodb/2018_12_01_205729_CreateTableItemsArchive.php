@@ -1,23 +1,19 @@
 <?php
-
 namespace Database\Migration\DynamoDB;
 
 use Aws\DynamoDb\DynamoDbClient;
 use QuanKim\LaravelDynamoDBMigrations\DBClient;
 
 /**
- * Class CreateTableItems
+ * Class CreateTableItemsArchive
  * @property DynamoDbClient dbClient
  */
-class CreateTableItems extends DBClient
+class CreateTableItemsArchive extends DBClient
 {
-    /**
-     * Create
-     */
     public function up()
     {
         $this->dbClient->createTable([
-            'TableName' => 'Items',
+            'TableName' => 'ItemsArchive',
             'KeySchema' => [
                 [
                     'AttributeName' => 'Author',
@@ -45,7 +41,7 @@ class CreateTableItems extends DBClient
         ]);
 
         $this->dbClient->waitUntil('TableExists', [
-            'TableName' => 'Items',
+            'TableName' => 'ItemsArchive',
             '@waiter' => [
                 'delay' => 5,
                 'maxAttempts' => 20,
@@ -59,11 +55,11 @@ class CreateTableItems extends DBClient
     public function down(&$canRollback)
     {
         $this->dbClient->deleteTable([
-            'TableName' => 'Items',
+            'TableName' => 'ItemsArchive',
         ]);
 
         $this->dbClient->waitUntil('TableNotExists', [
-            'TableName' => 'Items',
+            'TableName' => 'ItemsArchive',
             '@waiter' => [
                 'delay' => 5,
                 'maxAttempts' => 20,
