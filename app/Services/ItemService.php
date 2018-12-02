@@ -62,21 +62,30 @@ class ItemService
      */
     public function getLastItems(int $count): Collection
     {
-        // @TODO handle pagination (only 1MB of data per page is returned)
-        $result = $this->dynamoDb->scan([
-            'ConsistentRead' => true,
-            'TableName' => 'Items',
-            'Limit' => $count,
-            'ScanIndexForward' => false,
-        ]);
-
-        $items = $result->toArray()['Items'];
-
         $collection = new Collection();
-        foreach ($items as $item) {
-            $item = new Item($this->marshaler->unmarshalItem($item));
-            $collection->push($item);
-        }
+
+        $exclusiveStartKey = null;
+        do {
+            $args = [
+                'ConsistentRead' => true,
+                'TableName' => 'Items',
+                'Limit' => $count,
+                'ScanIndexForward' => false,
+            ];
+
+            if ($exclusiveStartKey) {
+                $args['ExclusiveStartKey'] = $exclusiveStartKey;
+            }
+
+            $result = $this->dynamoDb->scan($args);
+            $items = $result->toArray()['Items'];
+            $exclusiveStartKey = $result['LastEvaluatedKey'] ?? null;
+
+            foreach ($items as $item) {
+                $item = new Item($this->marshaler->unmarshalItem($item));
+                $collection->push($item);
+            }
+        } while($exclusiveStartKey && $count < $collection->count());
 
         return $collection;
     }
