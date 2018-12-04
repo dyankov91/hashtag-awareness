@@ -40,6 +40,7 @@ class ProcessTwitterItem extends Job
     {
         try {
             return new Item([
+                'Driver' => 'Twitter',
                 'Author' => $this->item['user']['name'],
                 'PublishedAt' => strtotime($this->item['created_at']),
                 'Text' => $this->item['text'],

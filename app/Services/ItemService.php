@@ -56,36 +56,46 @@ class ItemService
     }
 
     /**
-     * @param int $count
+     * @param int        $count
+     * @param bool       $scanIndexForward
+     * @param array|null $exclusiveStartKey
      * @return Collection
      * @throws Exception
      */
-    public function getLastItems(int $count): Collection
+    public function getItems(int $count, $scanIndexForward = true, array $exclusiveStartKey = null): Collection
     {
         $collection = new Collection();
 
-        $exclusiveStartKey = null;
         do {
             $args = [
                 'ConsistentRead' => true,
+                'KeyConditions' => [
+                    'Driver' => [
+                        'ComparisonOperator' => 'EQ',
+                        'AttributeValueList' => [$this->marshaler->marshalValue('Twitter')],
+                    ],
+                ],
                 'TableName' => 'Items',
                 'Limit' => $count,
-                'ScanIndexForward' => false,
+                'ScanIndexForward' => $scanIndexForward,
             ];
 
             if ($exclusiveStartKey) {
                 $args['ExclusiveStartKey'] = $exclusiveStartKey;
             }
 
-            $result = $this->dynamoDb->scan($args);
+            $result = $this->dynamoDb->query($args);
             $items = $result->toArray()['Items'];
             $exclusiveStartKey = $result['LastEvaluatedKey'] ?? null;
 
-            foreach ($items as $item) {
+            foreach ($items as $key => $item) {
                 $item = new Item($this->marshaler->unmarshalItem($item));
-                $collection->push($item);
+                $items[$key] = $item;
             }
         } while($exclusiveStartKey && $count < $collection->count());
+
+        $collection->put('items', $items);
+        $collection->put('@metadata', ['nextExclusiveStartKey' => $exclusiveStartKey]);
 
         return $collection;
     }

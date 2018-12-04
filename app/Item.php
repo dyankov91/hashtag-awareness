@@ -51,6 +51,30 @@ class Item implements CountableModelInterface, JsonSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getAuthor():string
+    {
+        return $this->payload['Author'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->payload['Text'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublishedAt()
+    {
+        return $this->payload['PublishedAt'];
+    }
+
+    /**
      * @return array|mixed
      */
     public function jsonSerialize()

@@ -20,7 +20,7 @@ class CreateTableItems extends DBClient
             'TableName' => 'Items',
             'KeySchema' => [
                 [
-                    'AttributeName' => 'Author',
+                    'AttributeName' => 'Driver',
                     'KeyType' => 'HASH',
                 ],
                 [
@@ -30,7 +30,7 @@ class CreateTableItems extends DBClient
             ],
             'AttributeDefinitions' => [
                 [
-                    'AttributeName' => 'Author',
+                    'AttributeName' => 'Driver',
                     'AttributeType' => 'S',
                 ],
                 [

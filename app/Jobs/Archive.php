@@ -39,9 +39,9 @@ class Archive
         try {
             $logger->info("[Archiver] Trying to archiving {$toArchive} items...");
 
-            $itemsToArchive = $itemService->getLastItems($toArchive);
-            $archiverService->bulkArchive($itemsToArchive);
-            $itemService->bulkDelete($itemsToArchive);
+            $itemsToArchive = $itemService->getItems($toArchive);
+            $archiverService->bulkArchive($itemsToArchive['items']);
+            $itemService->bulkDelete($itemsToArchive['items']);
 
             $logger->info("[Archiver] {$toArchive} items archived at: ".gmdate('Y-m-d H:i:s').PHP_EOL);
         } catch (\Exception $e) {
